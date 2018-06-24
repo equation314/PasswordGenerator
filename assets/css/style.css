@@ -13,10 +13,14 @@ body {
   word-break: break-word;
   height: 2.5rem;
 }
-.btn-display-password {
+.relative {
+  position: relative;
+}
+.btn-eye {
   color: #495057;
   top: 0;
-  left: -2.5rem;
+  left: unset;
+  right: 0;
   height: 2.5rem;
   width: 2.5rem;
   line-height: 2.5rem;
@@ -24,6 +28,16 @@ body {
   position: absolute;
   cursor: pointer;
   text-align: center;
+  outline: none;
+  background: transparent;
+  border: none;
+}
+.btn-eye:focus {
+  outline: none;
+}
+.btn-eye-result {
+  right: unset;
+  left: -2.5rem;
 }
 .btn-input {
   color: #495057;
@@ -31,4 +45,7 @@ body {
 }
 .dropdown-item {
   cursor: pointer;
+}
+#input-password {
+  padding-right: 2.5rem;
 }

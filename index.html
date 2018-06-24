@@ -36,8 +36,11 @@
                 </div>
               </div>
             </div>
-            <div class="form-group">
+            <div class="form-group relative">
               <input type="password" class="form-control" id="input-password" placeholder="Password">
+              <div class="btn-eye" id="btn-eye-password" data-password-target="#input-password">
+                <i class="fa fa-lg fa-eye" aria-hidden="true"></i>
+              </div>
             </div>
             <div class="form-group">
               <button type="submit" class="btn btn-success btn-gen" id="btn-gen" onclick="genPassword()">Generate!</button>
@@ -45,8 +48,8 @@
             <div class="form-group">
               <div class="input-group">
                 <input type="password" class="form-control input-result" id="input-result" maxlength="16" readonly>
-                <div class="input-group-append" style="position: relative">
-                  <div class="btn-display-password" id="btn-display-password" onclick="togglePassword()">
+                <div class="input-group-append relative">
+                  <div class="btn-eye btn-eye-result" id="btn-eye-result" data-password-target="#input-result">
                     <i class="fa fa-lg fa-eye" aria-hidden="true"></i>
                   </div>
                   <button id="btn-copy" type="button" class="btn btn-light btn-input" data-clipboard-target="#input-result">

@@ -15,32 +15,32 @@ function genPassword() {
   let password = hmac.replace(/=/g, "").substr(-16);
 
   $("#input-result").val(password);
-  showPassword();
-  setTimeout(hidePassword, 500);
+  showPassword("#btn-eye-result");
+  setTimeout(() => hidePassword("#btn-eye-result"), 500);
 }
 
 function chooseDomain(domain) {
   $("#input-domain").val(domain);
 }
 
-function showPassword() {
-  $("#input-result").attr("type", "text");
-  $("#btn-display-password i").removeClass("fa-eye");
-  $("#btn-display-password i").addClass("fa-eye-slash");
+function showPassword(eye) {
+  $($(eye).attr("data-password-target")).attr("type", "text");
+  $(eye)
+    .children(".fa")
+    .removeClass("fa-eye");
+  $(eye)
+    .children(".fa")
+    .addClass("fa-eye-slash");
 }
 
-function hidePassword() {
-  $("#input-result").attr("type", "password");
-  $("#btn-display-password i").removeClass("fa-eye-slash");
-  $("#btn-display-password i").addClass("fa-eye");
-}
-
-function togglePassword() {
-  if ($("#input-result").attr("type") === "password") {
-    showPassword();
-  } else {
-    hidePassword();
-  }
+function hidePassword(eye) {
+  $($(eye).attr("data-password-target")).attr("type", "password");
+  $(eye)
+    .children(".fa")
+    .removeClass("fa-eye-slash");
+  $(eye)
+    .children(".fa")
+    .addClass("fa-eye");
 }
 
 function setTooltip(btn, message) {
@@ -81,6 +81,18 @@ function init() {
 
   $("#btn-copy").tooltip({
     trigger: "click"
+  });
+  $(".btn-eye").click(e => {
+    eye = e.currentTarget;
+    if (
+      $(eye)
+        .children(".fa")
+        .hasClass("fa-eye")
+    ) {
+      showPassword(eye);
+    } else {
+      hidePassword(eye);
+    }
   });
 }
 
