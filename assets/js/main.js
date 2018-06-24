@@ -1,13 +1,18 @@
-DOMAINS = ["tsinghua.edu.cn", "github.com", "gmail.com", "Apple ID"];
+DOMAINS = ["tsinghua.edu.cn", "github.com", "Google", "Apple ID"];
 
 function genPassword() {
-  let domain = $("#input-domain").val();
+  let domain = $("#input-domain")
+    .val()
+    .toLowerCase();
   let rawPassword = $("#input-password").val();
   if (!domain || !rawPassword) {
     return;
   }
 
-  let password = domain + rawPassword;
+  let hmac = CryptoJS.HmacSHA3(domain, rawPassword).toString(
+    CryptoJS.enc.Base64
+  );
+  let password = hmac.replace(/=/g, "").substr(-16);
 
   $("#input-result").val(password);
   showPassword();
@@ -31,7 +36,6 @@ function hidePassword() {
 }
 
 function togglePassword() {
-  console.log($("#input-result").attr("type"));
   if ($("#input-result").attr("type") === "password") {
     showPassword();
   } else {
