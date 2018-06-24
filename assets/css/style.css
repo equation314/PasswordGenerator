@@ -13,16 +13,22 @@ body {
   word-break: break-word;
   height: 2.5rem;
 }
-.form-group {
-  position: relative;
-}
 .btn-display-password {
   color: #495057;
   top: 0;
-  right: 0.75rem;
+  left: -2.5rem;
+  height: 2.5rem;
+  width: 2.5rem;
   line-height: 2.5rem;
+  z-index: 100;
   position: absolute;
+  cursor: pointer;
+  text-align: center;
 }
-.btn-copy {
+.btn-input {
   color: #495057;
+  border-color: #ced4da;
+}
+.dropdown-item {
+  cursor: pointer;
 }

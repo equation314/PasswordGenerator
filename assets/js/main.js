@@ -19,6 +19,27 @@ function togglePassword() {
   }
 }
 
+function copyToClipboard() {
+  console.log(window.clipboardData);
+  password = $("#input-result").val();
+  console.log(password);
+  window.clipboardData.setData("Text", password);
+}
+
+function setTooltip(btn, message) {
+  $(btn)
+    .attr("data-original-title", message)
+    .tooltip("show");
+}
+
+function hideTooltip(btn) {
+  setTimeout(function() {
+    $(btn)
+      .tooltip("hide")
+      .attr("data-original-title", "");
+  }, 1000);
+}
+
 function init() {
   DOMAINS.forEach(addr => {
     $("#domains-menu").append(
@@ -27,6 +48,22 @@ function init() {
   });
   $("#input-result").click(() => {
     $("#input-result").select();
+  });
+
+  var clipboard = new ClipboardJS("#btn-copy", {
+    text: trigger => $("#input-result").val()
+  });
+  clipboard.on("success", function(e) {
+    setTooltip(e.trigger, "Copied!");
+    hideTooltip(e.trigger);
+  });
+  clipboard.on("error", function(e) {
+    setTooltip(e.trigger, "Failed!");
+    hideTooltip(e.trigger);
+  });
+
+  $("#btn-copy").tooltip({
+    trigger: "click"
   });
 }
 
