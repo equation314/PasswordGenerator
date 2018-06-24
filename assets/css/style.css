@@ -1,0 +1,28 @@
+body {
+  margin-top: 5rem;
+  background-color: #fafafa;
+}
+.btn-gen {
+  width: 100%;
+}
+.input-result,
+.input-result:focus {
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  color: #e83e8c;
+  word-break: break-word;
+  height: 2.5rem;
+}
+.form-group {
+  position: relative;
+}
+.btn-display-password {
+  color: #495057;
+  top: 0;
+  right: 0.75rem;
+  line-height: 2.5rem;
+  position: absolute;
+}
+.btn-copy {
+  color: #495057;
+}
