@@ -1,29 +1,42 @@
 DOMAINS = ["tsinghua.edu.cn", "github.com", "gmail.com", "Apple ID"];
 
-function genPassword() {}
+function genPassword() {
+  let domain = $("#input-domain").val();
+  let rawPassword = $("#input-password").val();
+  if (!domain || !rawPassword) {
+    return;
+  }
+
+  let password = domain + rawPassword;
+
+  $("#input-result").val(password);
+  showPassword();
+  setTimeout(hidePassword, 500);
+}
 
 function chooseDomain(domain) {
   $("#input-domain").val(domain);
 }
 
+function showPassword() {
+  $("#input-result").attr("type", "text");
+  $("#btn-display-password i").removeClass("fa-eye");
+  $("#btn-display-password i").addClass("fa-eye-slash");
+}
+
+function hidePassword() {
+  $("#input-result").attr("type", "password");
+  $("#btn-display-password i").removeClass("fa-eye-slash");
+  $("#btn-display-password i").addClass("fa-eye");
+}
+
 function togglePassword() {
   console.log($("#input-result").attr("type"));
   if ($("#input-result").attr("type") === "password") {
-    $("#input-result").attr("type", "text");
-    $("#btn-display-password i").removeClass("fa-eye");
-    $("#btn-display-password i").addClass("fa-eye-slash");
+    showPassword();
   } else {
-    $("#input-result").attr("type", "password");
-    $("#btn-display-password i").removeClass("fa-eye-slash");
-    $("#btn-display-password i").addClass("fa-eye");
+    hidePassword();
   }
-}
-
-function copyToClipboard() {
-  console.log(window.clipboardData);
-  password = $("#input-result").val();
-  console.log(password);
-  window.clipboardData.setData("Text", password);
 }
 
 function setTooltip(btn, message) {
