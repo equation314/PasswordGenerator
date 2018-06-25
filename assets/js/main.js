@@ -1,4 +1,4 @@
-DOMAINS = ["tsinghua.edu.cn", "github.com", "Google", "Apple ID"];
+DOMAINS = ["tsinghua.edu.cn", "net9.org", "github.com", "Google", "Apple ID"];
 
 function genPassword() {
   let domain = $("#input-domain")
@@ -17,6 +17,7 @@ function genPassword() {
   $("#input-result").val(password);
   showPassword("#btn-eye-result");
   setTimeout(() => hidePassword("#btn-eye-result"), 500);
+  $("#btn-copy").click();
 }
 
 function chooseDomain(domain) {
