@@ -12,7 +12,7 @@
   },
   "permissions": ["clipboardWrite"],
   "icons": {
-    "16": "assets/img/favicon.png",
-    "128": "assets/img/favicon.png"
+    "16": "assets/img/icon-16x16.png",
+    "128": "assets/img/icon-128x128.png"
   }
 }
