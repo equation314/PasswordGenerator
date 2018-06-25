@@ -59,10 +59,12 @@ function hideTooltip(btn) {
 }
 
 function init() {
-  DOMAINS.forEach(addr => {
-    $("#domains-menu").append(
-      `<a class="dropdown-item" onclick="chooseDomain('${addr}')">${addr}</a>`
-    );
+  DOMAINS.forEach((addr, i) => {
+    let btn = $(`<a class="dropdown-item" id="btn-domain-${i}">${addr}</a>`);
+    $("#domains-menu").append(btn);
+    btn.click(() => {
+      chooseDomain(addr);
+    });
   });
   $("#input-result").click(() => {
     $("#input-result").select();
@@ -95,6 +97,9 @@ function init() {
       hidePassword(eye);
     }
   });
+
+  $("#btn-gen").click(genPassword);
+  $("form").submit(() => false);
 }
 
 $(document).ready(() => {

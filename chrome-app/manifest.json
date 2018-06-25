@@ -1,0 +1,18 @@
+{
+  "name": "Password Generator",
+  "description": "A secure password generator based on HMAC-SHA3.",
+  "version": "1.0",
+  "manifest_version": 2,
+  "offline_enabled": true,
+  "author": "Yuekai Jia",
+  "app": {
+    "background": {
+      "scripts": ["assets/js/background.js"]
+    }
+  },
+  "permissions": ["clipboardWrite"],
+  "icons": {
+    "16": "assets/img/favicon.png",
+    "128": "assets/img/favicon.png"
+  }
+}

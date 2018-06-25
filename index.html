@@ -4,6 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="assets/img/favicon.png" type="image/png" />
   <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdn.bootcss.com/popper.js/1.14.2/umd/popper.min.js"></script>
   <script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -20,12 +21,12 @@
   <div class="container">
     <div class="col-md-6 offset-md-3">
 
-      <div class="card">
+      <div class="card" style="margin-top:5rem">
         <h5 class="card-header">
           Password Generator
         </h5>
         <div class="card-body">
-          <form onsubmit="return false">
+          <form>
             <div class="form-group">
               <div class="input-group">
                 <input type="text" class="form-control" id="input-domain" placeholder="Domain name">
@@ -43,7 +44,7 @@
               </div>
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-success btn-gen" id="btn-gen" onclick="genPassword()">Generate!</button>
+              <button type="submit" class="btn btn-success btn-gen" id="btn-gen">Generate!</button>
             </div>
             <div class="form-group">
               <div class="input-group">
